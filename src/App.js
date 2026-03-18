@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,8 +13,10 @@ import Activities from './components/Activities';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackgroundCanvas from './components/BackgroundCanvas';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
+
   // Scroll reveal observer
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -30,27 +34,42 @@ function App() {
   }, []);
 
   return (
-    <>
-      {/* 🔥 GLOBAL BACKGROUND */}
+    <BrowserRouter>
+
+      {/* 🌌 GLOBAL BACKGROUND */}
       <BackgroundCanvas />
 
-      {/* 🔝 UI Components */}
+      {/* 🎯 COMMON UI */}
       <Cursor />
       <Navbar />
 
-      <main>
-        <Hero />
-        <Marquee />
-        <About />
-        <Education />
-        <Skills />
-        <Projects />
-        <Activities />
-        <Contact />
-      </main>
+      <Routes>
+
+        {/* 🏠 HOME PAGE */}
+        <Route
+          path="/"
+          element={
+            <main>
+              <Hero />
+              <Marquee />
+              <About />
+              <Education />
+              <Skills />
+              <Projects />
+              <Activities />
+              <Contact />
+            </main>
+          }
+        />
+
+        {/* 👤 PROFILE PAGE */}
+        <Route path="/profile" element={<ProfilePage />} />
+
+      </Routes>
 
       <Footer />
-    </>
+
+    </BrowserRouter>
   );
 }
 

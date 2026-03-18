@@ -2,23 +2,41 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 0.9rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
   background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 🔥 Scroll effect */
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* 🔥 PROFILE LOGO */
 .nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #e8ff47;
+  display: flex;
+  align-items: center;
+}
+
+.nav-profile {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-profile:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(232, 255, 71, 0.6);
 }
 
 /* LINKS */
@@ -26,12 +44,39 @@
   display: flex;
   gap: 2rem;
   list-style: none;
+  align-items: center;
+}
+
+.nav-links li {
+  position: relative;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: white;
-  font-size: 0.9rem;
+  color: var(--text);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  transition: color 0.25s ease;
+}
+
+/* 🔥 Hover underline effect */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 /* HAMBURGER */
@@ -39,29 +84,47 @@
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
+  color: var(--text);
+  z-index: 1100;
 }
 
 /* 📱 MOBILE */
 @media (max-width: 768px) {
-  
+
+  .navbar {
+    padding: 0.8rem 1.2rem;
+  }
+
   .hamburger {
     display: block;
   }
 
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: 65px;
     right: 0;
     width: 100%;
-    background: #0a0a0f;
+    background: rgba(10,10,15,0.98);
+    backdrop-filter: blur(10px);
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.6rem;
     padding: 2rem 0;
     display: none;
+    animation: fadeDown 0.3s ease;
   }
 
   .nav-links.active {
     display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  /* 🔥 Profile image small on mobile */
+  .nav-profile {
+    width: 36px;
+    height: 36px;
   }
 }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import profile from '../assets/profile.jpg';
+import { Link } from 'react-router-dom';
 
 const links = [
   { href: '#about', label: 'About' },
@@ -22,16 +24,20 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      
-      {/* Logo */}
-      <div className="nav-logo">AK.</div>
 
-      {/* Hamburger */}
+      {/* 🔥 PROFILE IMAGE (Logo replacement) */}
+      <div className="nav-logo">
+        <Link to="/profile" onClick={() => setMenuOpen(false)}>
+          <img src={profile} alt="profile" className="nav-profile" />
+        </Link>
+      </div>
+
+      {/* 🍔 Hamburger */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
 
-      {/* Links */}
+      {/* 🔗 Links */}
       <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
         {links.map((l) => (
           <li key={l.href} onClick={() => setMenuOpen(false)}>

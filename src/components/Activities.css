@@ -1,0 +1,62 @@
+.activities-section {
+  background: var(--bg);
+}
+
+.act-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.act-item {
+  background: var(--bg);
+  padding: 1.8rem 2.2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.8rem;
+  transition: background 0.25s;
+}
+
+.act-item:hover {
+  background: var(--surface);
+}
+
+.act-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+.act-role {
+  font-weight: 700;
+  font-size: 0.98rem;
+  margin-bottom: 0.22rem;
+}
+
+.act-org {
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+
+.act-period {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .act-item {
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+  }
+  .act-period {
+    display: none;
+  }
+}

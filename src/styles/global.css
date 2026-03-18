@@ -14,6 +14,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 🔥 ROOT FIX (IMPORTANT FOR BACKGROUND) */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
 /* ── CSS VARIABLES ── */
 :root {
   --bg: #0a0a0f;
@@ -38,9 +44,11 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   cursor: none;
+  position: relative;
+  z-index: 1;
 }
 
-/* 🔥 MOBILE FIX: cursor normal */
+/* 🔥 MOBILE CURSOR FIX */
 @media (max-width: 768px) {
   body {
     cursor: auto;
@@ -58,7 +66,7 @@ button {
   cursor: none;
 }
 
-/* ── IMAGE FIX (IMPORTANT) ── */
+/* ── IMAGE FIX ── */
 img {
   max-width: 100%;
   height: auto;
@@ -72,7 +80,7 @@ body::before {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 9990;
+  z-index: 0;   /* 🔥 FIX: canvas ke niche rahe */
   opacity: 0.35;
 }
 
@@ -95,7 +103,7 @@ body::before {
   padding: 7rem 4rem;
 }
 
-/* 🔥 MOBILE PADDING FIX */
+/* MOBILE */
 @media (max-width: 768px) {
   .section-inner {
     padding: 4rem 1.2rem;
@@ -119,7 +127,6 @@ body::before {
   width: 22px;
   height: 1px;
   background: var(--accent);
-  flex-shrink: 0;
 }
 
 .section-title {
@@ -129,7 +136,7 @@ body::before {
   margin-bottom: 3rem;
 }
 
-/* 🔥 MOBILE TITLE FIX */
+/* MOBILE TITLE */
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
@@ -148,7 +155,7 @@ button {
   }
 }
 
-/* ── GRID FIX (USE THIS CLASS IN PROJECTS) ── */
+/* ── GRID ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -167,7 +174,7 @@ button {
   }
 }
 
-/* ── FLEX LAYOUT FIX ── */
+/* ── FLEX ── */
 .container {
   display: flex;
   justify-content: space-between;
@@ -182,7 +189,7 @@ button {
   }
 }
 
-/* ── NAVBAR FIX ── */
+/* ── NAV ── */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -209,12 +216,12 @@ button {
 
 @keyframes sdotPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(232, 255, 71, 0.55); }
-  50%       { box-shadow: 0 0 0 5px rgba(232, 255, 71, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(232, 255, 71, 0); }
 }
 
 @keyframes scrollAnim {
-  0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
-  55%  { opacity: 1; transform: scaleY(1); }
+  0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  55% { opacity: 1; transform: scaleY(1); }
   100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Activities from './components/Activities';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackgroundCanvas from './components/BackgroundCanvas';
 
 function App() {
   // Scroll reveal observer
@@ -22,14 +23,21 @@ function App() {
       },
       { threshold: 0.1 }
     );
+
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
     return () => io.disconnect();
   }, []);
 
   return (
     <>
+      {/* 🔥 GLOBAL BACKGROUND */}
+      <BackgroundCanvas />
+
+      {/* 🔝 UI Components */}
       <Cursor />
       <Navbar />
+
       <main>
         <Hero />
         <Marquee />
@@ -40,6 +48,7 @@ function App() {
         <Activities />
         <Contact />
       </main>
+
       <Footer />
     </>
   );

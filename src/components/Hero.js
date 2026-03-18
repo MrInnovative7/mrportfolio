@@ -10,11 +10,9 @@ function Hero() {
     const ctx = canvas.getContext('2d');
 
     let W, H, animId;
-
-    // 📱 Detect mobile
-    const isMobile = window.innerWidth < 768;
-
     let mouseX = -999, mouseY = -999;
+
+    const isMobile = window.innerWidth < 768;
 
     const resize = () => {
       W = canvas.width = canvas.offsetWidth;
@@ -24,31 +22,25 @@ function Hero() {
     resize();
     window.addEventListener('resize', resize);
 
-    // ❌ Mouse move disable on mobile (performance boost)
+    // ✅ FIXED: no early return
+    let onMouseMove;
     if (!isMobile) {
-      const onMouseMove = (e) => {
+      onMouseMove = (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
       };
       document.addEventListener('mousemove', onMouseMove);
-
-      return () => {
-        document.removeEventListener('mousemove', onMouseMove);
-      };
     }
 
-    // 🔥 Reduce nodes for mobile
-    const N = isMobile ? 25 : 55;
+    // Nodes
+    const N = isMobile ? 25 : 60;
 
     const nodes = Array.from({ length: N }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.2,
-      r: Math.random() * 1.4 + 0.4,
-      ph: Math.random() * Math.PI * 2,
-      ps: Math.random() * 0.018 + 0.008,
-      active: Math.random() > 0.78,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 1.5 + 0.5,
     }));
 
     const draw = () => {
@@ -61,8 +53,11 @@ function Hero() {
         if (n.x < 0 || n.x > W) n.vx *= -1;
         if (n.y < 0 || n.y > H) n.vy *= -1;
 
+        // 🔥 glow effect
         ctx.beginPath();
-        ctx.fillStyle = '#e8ff47';
+        ctx.fillStyle = 'rgba(232,255,71,0.9)';
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#e8ff47';
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fill();
       });
@@ -73,8 +68,13 @@ function Hero() {
     draw();
 
     return () => {
-      cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
+
+      if (onMouseMove) {
+        document.removeEventListener('mousemove', onMouseMove);
+      }
+
+      cancelAnimationFrame(animId);
     };
   }, []);
 

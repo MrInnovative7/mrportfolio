@@ -40,12 +40,29 @@ body {
   cursor: none;
 }
 
+/* 🔥 MOBILE FIX: cursor normal */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+  a, button {
+    cursor: pointer;
+  }
+}
+
 a {
   cursor: none;
 }
 
 button {
   cursor: none;
+}
+
+/* ── IMAGE FIX (IMPORTANT) ── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ── NOISE OVERLAY ── */
@@ -78,6 +95,13 @@ body::before {
   padding: 7rem 4rem;
 }
 
+/* 🔥 MOBILE PADDING FIX */
+@media (max-width: 768px) {
+  .section-inner {
+    padding: 4rem 1.2rem;
+  }
+}
+
 .section-label {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -105,6 +129,73 @@ body::before {
   margin-bottom: 3rem;
 }
 
+/* 🔥 MOBILE TITLE FIX */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+/* ── BUTTON FIX ── */
+button {
+  padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+  button {
+    width: 100%;
+  }
+}
+
+/* ── GRID FIX (USE THIS CLASS IN PROJECTS) ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── FLEX LAYOUT FIX ── */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}
+
+/* ── NAVBAR FIX ── */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(22px); }
@@ -130,11 +221,4 @@ body::before {
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .section-inner {
-    padding: 5rem 1.5rem;
-  }
 }

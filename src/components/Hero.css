@@ -237,3 +237,64 @@
   .hero-stat--left  { left: 1rem;  bottom: 5rem; }
   .hero-stat--right { right: 1rem; bottom: 5rem; }
 }
+
+/* ================= MOBILE RESPONSIVE FIX ================= */
+
+@media (max-width: 768px) {
+
+  /* Hero overall spacing */
+  .hero {
+    justify-content: center;
+  }
+
+  /* Content center + spacing */
+  .hero-content {
+    padding: 2rem 1rem 3rem;
+    text-align: center;
+  }
+
+  /* Big name fix */
+  .hero-name {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Divider remove for clean look */
+  .hero-divider {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .divider-line {
+    display: none;
+  }
+
+  /* Buttons full width */
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Status pill adjust */
+  .hero-status {
+    top: 5rem;
+    font-size: 0.55rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* Hide heavy UI for clean mobile */
+  .hero-stat,
+  .scroll-hint {
+    display: none;
+  }
+}

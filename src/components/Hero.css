@@ -238,63 +238,45 @@
   .hero-stat--right { right: 1rem; bottom: 5rem; }
 }
 
-/* ================= MOBILE RESPONSIVE FIX ================= */
-
+/* ===== MOBILE HERO FIX (IMPORTANT) ===== */
 @media (max-width: 768px) {
 
-  /* Hero overall spacing */
   .hero {
-    justify-content: center;
+    min-height: auto;         /* ❌ remove full height */
+    height: auto;
+    padding-top: 6rem;        /* navbar ke niche space */
+    padding-bottom: 2rem;
+    justify-content: center;  /* center content */
   }
 
-  /* Content center + spacing */
   .hero-content {
-    padding: 2rem 1rem 3rem;
-    text-align: center;
+    padding: 1rem;
+    margin-top: 0;
   }
 
-  /* Big name fix */
+  /* Name spacing fix */
   .hero-name {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
-    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
   }
 
-  /* Subtitle */
-  .hero-subtitle {
-    font-size: 0.9rem;
+  /* Remove extra vertical gap */
+  .hero-eyebrow {
+    margin-bottom: 0.6rem;
   }
 
-  /* Divider remove for clean look */
   .hero-divider {
-    flex-direction: column;
-    gap: 0.6rem;
+    margin: 0.8rem 0 1.2rem;
   }
 
-  .divider-line {
-    display: none;
+  /* Canvas height control */
+  .hero-canvas {
+    height: 100%;
   }
 
-  /* Buttons full width */
-  .hero-ctas {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Status pill adjust */
+  /* Remove extra top floating elements */
   .hero-status {
-    top: 5rem;
-    font-size: 0.55rem;
-    padding: 0.4rem 0.8rem;
+    top: 4.5rem;
   }
 
-  /* Hide heavy UI for clean mobile */
-  .hero-stat,
-  .scroll-hint {
-    display: none;
-  }
 }

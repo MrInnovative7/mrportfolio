@@ -35,10 +35,6 @@ function Navbar() {
           </li>
 
           <li onClick={handleClick}>
-            <a href="/#skills">Skills</a>
-          </li>
-
-          <li onClick={handleClick}>
             <a href="/#projects">Projects</a>
           </li>
 

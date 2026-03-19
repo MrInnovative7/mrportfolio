@@ -49,7 +49,6 @@ function App() {
             <main>
               <Hero />
               <Marquee />
-              <Skills />
               <Projects />
               <Activities />
               <Contact />

@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
-import About from './components/About';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -13,11 +12,10 @@ import Activities from './components/Activities';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackgroundCanvas from './components/BackgroundCanvas';
-import ProfilePage from './components/ProfilePage';
+
+import AboutPage from './pages/AboutPage';
 
 function App() {
-
-  // Scroll reveal observer
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
@@ -29,30 +27,25 @@ function App() {
     );
 
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-
     return () => io.disconnect();
   }, []);
 
   return (
-    <BrowserRouter>
+    <Router>
 
-      {/* 🌌 GLOBAL BACKGROUND */}
       <BackgroundCanvas />
-
-      {/* 🎯 COMMON UI */}
       <Cursor />
       <Navbar />
 
       <Routes>
 
-        {/* 🏠 HOME PAGE */}
+        {/* HOME PAGE */}
         <Route
           path="/"
           element={
             <main>
               <Hero />
               <Marquee />
-              <About />
               <Education />
               <Skills />
               <Projects />
@@ -62,14 +55,13 @@ function App() {
           }
         />
 
-        {/* 👤 PROFILE PAGE */}
-        <Route path="/profile" element={<ProfilePage />} />
+        {/* ABOUT PAGE */}
+        <Route path="/about" element={<AboutPage />} />
 
       </Routes>
 
       <Footer />
-
-    </BrowserRouter>
+    </Router>
   );
 }
 

@@ -5,33 +5,31 @@ function Hero() {
   return (
     <section id="hero" className="hero">
 
-      {/* Content */}
-      <div className="hero-content">
+      <div className="hero-container">
 
-        <p className="hero-eyebrow">
-          B.Tech · Electrical Engineering · GEC Siwan
-        </p>
+        {/* LEFT CONTENT */}
+        <div className="hero-left">
 
-        <h1 className="hero-name">
-          <span className="hero-name__hollow">Abhinav</span>
-          <span className="hero-name__solid">Kumar</span>
-        </h1>
+          <h1 className="hero-title">
+            I'm an Electrical Engineer who builds
+            <span> smart systems.</span>
+          </h1>
 
-        <div className="hero-divider">
-          <span className="divider-line" />
-          <span className="hero-subtitle">
-            Engineer · Builder · Leader
-          </span>
-          <span className="divider-line divider-line--right" />
-        </div>
+          <p className="hero-description">
+            Passionate about creating intelligent, automated solutions by combining 
+            electrical engineering with modern software technologies. 
+            I love solving real-world problems with innovation.
+          </p>
 
-        <div className="hero-ctas">
-          <a href="#projects" className="btn btn--primary">
-            View Projects
-          </a>
-          <a href="#contact" className="btn btn--outline">
-            Get in Touch
-          </a>
+          <div className="hero-buttons">
+            <a href="#projects" className="btn-primary">
+              View Projects
+            </a>
+            <a href="#contact" className="btn-secondary">
+              Contact Me
+            </a>
+          </div>
+
         </div>
 
       </div>

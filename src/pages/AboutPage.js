@@ -17,7 +17,7 @@ function AboutPage() {
 
           <p>
             I'm a highly motivated Electrical Engineer currently pursuing B.Tech
-            at GEC Siwan under BEU Patna. I combine technical depth with
+            at GEC Siwan under BEU Patna, I have completed my Diploma in Electrical Engineering with technical depth with
             communication and leadership skills.
           </p>
 

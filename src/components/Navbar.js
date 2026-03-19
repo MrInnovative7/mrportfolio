@@ -31,7 +31,7 @@ function Navbar() {
 
           {/* HOME SECTIONS */}
           <li onClick={handleClick}>
-            <a href="/#education">Education</a>
+            <Link to="/education">Education</Link>
           </li>
 
           <li onClick={handleClick}>

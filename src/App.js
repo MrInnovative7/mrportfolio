@@ -5,7 +5,6 @@ import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
-import Education from './components/Education';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Activities from './components/Activities';
@@ -14,6 +13,7 @@ import Footer from './components/Footer';
 import BackgroundCanvas from './components/BackgroundCanvas';
 
 import AboutPage from './pages/AboutPage';
+import EducationPage from './pages/EducationPage'; // ✅ IMPORTANT
 
 function App() {
   useEffect(() => {
@@ -33,20 +33,22 @@ function App() {
   return (
     <Router>
 
+      {/* 🌌 GLOBAL BACKGROUND */}
       <BackgroundCanvas />
+
+      {/* UI */}
       <Cursor />
       <Navbar />
 
       <Routes>
 
-        {/* HOME PAGE */}
+        {/* 🏠 HOME */}
         <Route
           path="/"
           element={
             <main>
               <Hero />
               <Marquee />
-              <Education />
               <Skills />
               <Projects />
               <Activities />
@@ -55,12 +57,16 @@ function App() {
           }
         />
 
-        {/* ABOUT PAGE */}
+        {/* 📄 ABOUT PAGE */}
         <Route path="/about" element={<AboutPage />} />
+
+        {/* 🎓 EDUCATION PAGE */}
+        <Route path="/education" element={<EducationPage />} />
 
       </Routes>
 
       <Footer />
+
     </Router>
   );
 }

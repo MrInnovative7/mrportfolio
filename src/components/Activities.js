@@ -28,7 +28,7 @@ function Activities() {
       <div className="section-inner">
         <div className="section-label">Leadership</div>
         <div className="section-title">Honors &amp; Activities</div>
-        <div className="act-list reveal">
+        <div className="act-list">
           {activitiesData.map((a) => (
             <div className="act-item" key={a.num}>
               <span className="act-num">{a.num}</span>

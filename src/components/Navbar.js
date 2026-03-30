@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import { FaFileDownload } from 'react-icons/fa';
 
 const links = [
-  { href: '#about', label: 'About' },
-  { href: '#education', label: 'Education' },
+
   { href: '#projects', label: 'Projects' },
   { href: '#activities', label: 'Activities' },
   { href: '#contact', label: 'Contact' },
@@ -27,7 +26,15 @@ function Navbar() {
         </Link>
 
         {/* LINKS */}
+       
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <li>
+            <a href='/about'>About Us</a>
+          </li>
+          <li>
+            <a href='/education'>Education</a>
+          </li>
+          
           {links.map((l) => (
             <li key={l.href} onClick={() => setMenuOpen(false)}>
               <a href={l.href}>{l.label}</a>

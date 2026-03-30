@@ -13,7 +13,7 @@ function Contact() {
       <div className="contact-inner">
         <div className="contact-glow" />
         <div className="section-label contact-label">Let's Connect</div>
-        <div className="contact-title reveal">
+        <div className="contact-title">
           Let's Build<br />
           <span className="contact-title__accent">Something</span>
           {' '}Together

@@ -23,6 +23,8 @@ const projectsData = [
 ];
 
 function Projects() {
+
+
   return (
     <section id="projects" className="projects-section">
       <div className="section-inner">
@@ -30,7 +32,7 @@ function Projects() {
         <div className="section-title">Projects</div>
         <div className="projects-grid">
           {projectsData.map((p) => (
-            <div className="project-card reveal" key={p.num}>
+            <div className="project-card" key={p.num}>
               <div className="project-num">{p.num}</div>
               <div className="project-name">{p.name}</div>
               <div className="project-desc">{p.desc}</div>

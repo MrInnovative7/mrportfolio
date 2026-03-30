@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import resume from '../assets/resume.pdf';
 
 function Hero() {
   return (
@@ -7,7 +8,6 @@ function Hero() {
 
       <div className="hero-container">
 
-        {/* LEFT CONTENT */}
         <div className="hero-left">
 
           <h1 className="hero-title">
@@ -23,14 +23,12 @@ function Hero() {
 
           <div className="hero-buttons">
 
-            {/* PRIMARY BUTTON */}
             <a href="#projects" className="btn-primary">
               View Projects
             </a>
 
-            {/* ✅ FINAL RESUME BUTTON */}
             <a 
-              href="/resume.pdf"
+              href={resume}
               download="Abhinav_Resume.pdf"
               className="btn-secondary"
             >

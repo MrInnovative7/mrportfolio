@@ -28,9 +28,13 @@ function Hero() {
               View Projects
             </a>
 
-            {/* 🔥 RESUME BUTTON (UPDATED) */}
-            <a href="/resume.pdf" download className="btn-secondary">
-              📄 Resume
+            {/* ✅ FINAL RESUME BUTTON */}
+            <a 
+              href="/resume.pdf"
+              download="Abhinav_Resume.pdf"
+              className="btn-secondary"
+            >
+              Download Resume
             </a>
 
           </div>

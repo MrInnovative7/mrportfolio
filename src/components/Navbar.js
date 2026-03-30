@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import profile from '../assets/profile.jpg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { FaFileDownload } from 'react-icons/fa';
+
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#education', label: 'Education' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#activities', label: 'Activities' },
+  { href: '#contact', label: 'Contact' },
+];
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-
-  // ✅ helper: close menu
-  const handleClick = () => setMenuOpen(false);
 
   return (
     <div className="nav-wrapper">
@@ -16,34 +21,28 @@ function Navbar() {
       <nav className="navbar">
 
         {/* LEFT PROFILE */}
-        <Link to="/" className="nav-left" onClick={handleClick}>
+        <Link to="/" className="nav-left">
           <img src={profile} alt="profile" className="nav-profile" />
           <span className="nav-name">Abhinav</span>
         </Link>
 
         {/* LINKS */}
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          {links.map((l) => (
+            <li key={l.href} onClick={() => setMenuOpen(false)}>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))}
 
-          {/* ABOUT (separate page) */}
-          <li onClick={handleClick}>
-            <Link to="/about">About</Link>
-          </li>
-
-          {/* HOME SECTIONS */}
-          <li onClick={handleClick}>
-            <Link to="/education">Education</Link>
-          </li>
-
-          <li onClick={handleClick}>
-            <a href="/#projects">Projects</a>
-          </li>
-
-          <li onClick={handleClick}>
-            <a href="/#activities">Activities</a>
-          </li>
-
-          <li onClick={handleClick}>
-            <a href="/#contact">Contact</a>
+          {/* 🔥 RESUME BUTTON */}
+          <li>
+            <a
+              href="/resume.pdf"
+              download
+              className="resume-btn"
+            >
+              <FaFileDownload /> Resume
+            </a>
           </li>
 
         </ul>

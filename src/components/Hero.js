@@ -22,12 +22,17 @@ function Hero() {
           </p>
 
           <div className="hero-buttons">
+
+            {/* PRIMARY BUTTON */}
             <a href="#projects" className="btn-primary">
               View Projects
             </a>
-            <a href="#contact" className="btn-secondary">
-              Contact Me
+
+            {/* 🔥 RESUME BUTTON (UPDATED) */}
+            <a href="/resume.pdf" download className="btn-secondary">
+              📄 Resume
             </a>
+
           </div>
 
         </div>

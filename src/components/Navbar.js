@@ -34,17 +34,6 @@ function Navbar() {
             </li>
           ))}
 
-          {/* 🔥 RESUME BUTTON */}
-          <li>
-            <a
-              href="/resume.pdf"
-              download
-              className="resume-btn"
-            >
-              <FaFileDownload /> Resume
-            </a>
-          </li>
-
         </ul>
 
         {/* HAMBURGER */}

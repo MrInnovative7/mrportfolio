@@ -51,67 +51,66 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(232,255,71,0.3);
+  box-shadow: 0 10px 25px rgba(0, 224, 255, 0.35);
 }
 
-/* SECONDARY BUTTON */
+/* SECONDARY BUTTON (RESUME) */
 .btn-secondary {
   border: 1px solid rgba(255,255,255,0.2);
   color: var(--text);
   padding: 0.9rem 1.8rem;
   text-decoration: none;
   font-size: 0.8rem;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
+/* 🔥 HOVER GLOW */
 .btn-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  transform: translateY(-3px);
 }
 
-/* ===== MOBILE HERO FIX (FINAL) ===== */
+/* ===== MOBILE HERO FIX (FINAL CLEAN) ===== */
 @media (max-width: 768px) {
 
   .hero {
-    min-height: auto;        /* ❌ full height hatao */
+    min-height: auto;
     height: auto;
-    padding-top: 5rem;       /* navbar ke niche space */
-    padding-bottom: 1.5rem;  /* niche ka gap kam */
+    padding: 5rem 1.2rem 1.5rem;
     justify-content: center;
   }
 
-  .hero-content {
-    padding: 0 1rem;
-    margin-top: 0;
+  .hero-container {
+    width: 100%;
   }
 
-  /* Heading spacing fix */
-  .hero-name {
-    margin-top: 0;
-    margin-bottom: 0.4rem;
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
   }
 
-  .hero-eyebrow {
-    margin-bottom: 0.5rem;
+  .hero-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
   }
 
-  .hero-divider {
-    margin: 0.6rem 0 1rem;
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
-  /* Buttons spacing */
-  .hero-ctas {
-    margin-top: 1rem;
-  }
-
-  /* Scroll hint remove (extra space deta hai) */
-  .scroll-hint {
-    display: none;
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
   }
 
 }
